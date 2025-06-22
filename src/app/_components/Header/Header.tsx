@@ -1,7 +1,7 @@
 import Logo from "@/app/_components/Logo";
 import Link from "next/link";
 import React from "react";
-import UserButton from "./Header/UserButton";
+import UserButton from "./UserButton";
 
 const Header = React.memo(() => (
     <header>

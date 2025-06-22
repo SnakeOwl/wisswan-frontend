@@ -3,7 +3,7 @@ import ParticlesWrapper from "./_components/ParticlesWrapper"
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google"
 import "./globals.css";
-
+import Header from "./_components/Header/Header";
 
 const comfortaa = Comfortaa({
     subsets: ["latin", "cyrillic"],
@@ -15,13 +15,15 @@ export default function RootLayout({
     children
 }: {
     children: React.ReactNode
-}){
+}) {
     return (
-        <html lang="ru" className="bg-white dark:bg-black text-black dark:text-slate-100 ">
+        <html lang="ru" className="bg-white dark:bg-black text-black dark:text-slate-500 ">
             <body className={`${comfortaa.className} antialiased`}>
                 <ParticlesWrapper>
+                    <Header />
+
                     {children}
-                    
+
                 </ParticlesWrapper>
             </body>
         </html>
