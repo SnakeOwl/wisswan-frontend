@@ -1,3 +1,40 @@
-@tailwind base;
-@tailwind utilities;
+@import 'tailwindcss';
+/* ==== кастомные утилиты */
+@utility crimson {
+  background-color: var(--color-red-900);
+}
 
+
+
+@layer base {
+  .h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  a:hover {
+    color: var(--color-sky-500);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a:hover {
+      color: var(--color-sky-400);
+    }
+  }
+}
+
+
+
+/*
+In v4 we've updated the hover variant to only apply when the primary input device supports hover:
+
+CSS
+@media (hover: hover) {
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+}
+This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the hover variant with your own variant that uses the old implementation:
+
+CSS
+@custom-variant hover (&:hover);
+*/
