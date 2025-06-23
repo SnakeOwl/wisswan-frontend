@@ -11,5 +11,8 @@ const UserButton = React.memo(() => (
     </div>
 ));
 
+
+UserButton.displayName = "UserButton";
+
 export default UserButton;
 

@@ -4,11 +4,7 @@ import { createNote, State } from "@/actions/db/createNote";
 import React, { useActionState } from "react";
 
 
-const Form = React.memo(({
-    defaultData
-}: {
-    defaultData: any
-}) => {
+const Form = React.memo(() => {
     const initialState: State = { message: null, errors: {} };
     const [state, fromAction] = useActionState(createNote, initialState)
     // const [data, setData] = useState<any>(defaultData);
@@ -61,5 +57,6 @@ const Form = React.memo(({
     )
 });
 
+Form.displayName = "Form";
 
 export default Form

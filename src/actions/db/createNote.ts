@@ -1,6 +1,5 @@
 "use server"
 
-import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
@@ -42,6 +41,8 @@ export async function createNote(prevState: State, formData: FormData) {
         // here make sending to the server
 
     } catch (e) {
+        console.error(e);
+        
         return {
             message: 'Database Error: Failed to Create Invoice.',
         };

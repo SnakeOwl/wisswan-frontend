@@ -15,11 +15,13 @@ const Header = React.memo(() => (
             </div>
 
             <div className="w-1/3 flex flex-wrap items-center justify-center">
-                <UserButton />    
+                <UserButton />
             </div>
         </div>
     </header>
 ))
 
+
+Header.displayName = "Header";
 
 export default Header;

@@ -43,7 +43,7 @@ const ParticlesWrapper = React.memo(({ children }: { children: React.ReactNode }
             particlesConfig.particles.number.value = 16;
         }
 
-        particlesJS('particles-js', particlesConfig); 
+        particlesJS('particles-js', particlesConfig);
 
     }, []);
 
@@ -58,5 +58,7 @@ const ParticlesWrapper = React.memo(({ children }: { children: React.ReactNode }
     )
 })
 
+
+ParticlesWrapper.displayName = "ParticlesWrapper";
 
 export default ParticlesWrapper;

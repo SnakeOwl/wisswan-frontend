@@ -5,6 +5,8 @@ import { Comfortaa } from "next/font/google"
 import "./globals.css";
 import Header from "./_components/Header/Header";
 
+// шрифты для сайта: PT Sans / PT Serif
+
 const comfortaa = Comfortaa({
     subsets: ["latin", "cyrillic"],
     weight: ["300", "400", "500"]
