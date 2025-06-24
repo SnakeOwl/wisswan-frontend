@@ -1,15 +1,16 @@
 
 import ParticlesWrapper from "./_components/ParticlesWrapper"
 import type { Metadata } from "next";
-import { Comfortaa } from "next/font/google"
 import "./globals.css";
 import Header from "./_components/Header/Header";
 
+import { PT_Serif } from "next/font/google";
+
 // шрифты для сайта: PT Sans / PT Serif
 
-const comfortaa = Comfortaa({
+const pt_serif = PT_Serif({
     subsets: ["latin", "cyrillic"],
-    weight: ["300", "400", "500"]
+    weight: ["400", "700"]
 });
 
 
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ru" className="bg-white dark:bg-black text-black dark:text-slate-500 ">
-            <body className={`${comfortaa.className} antialiased`}>
+            <body className={`${pt_serif.className} antialiased`}>
                 <ParticlesWrapper>
                     <Header />
 
