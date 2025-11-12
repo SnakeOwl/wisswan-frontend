@@ -4,11 +4,24 @@
   background-color: var(--color-red-900);
 }
 
-
-
 @layer base {
   .h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--text-3xl);
+  }
+  .h2 {
+    font-size: var(--text-2xl);
+  }
+  .h3 {
+    font-size: var(--text-xl);
+  }
+  .h4 {
+    font-size: var(--text-lg);
+  }
+  .h5 {
+    font-size: var(--text-base);
+  }
+  .h6 {
+    font-size: var(--text-sm);
   }
 
   a:hover {
@@ -21,8 +34,6 @@
     }
   }
 }
-
-
 
 /*
 In v4 we've updated the hover variant to only apply when the primary input device supports hover:

@@ -16,8 +16,8 @@ export default async function Page() {
             })}>
 
             <div className="w-[50px] h-[50px] bg-red-500 hover:bg-yellow-500"></div>
-            <h1 className='crimson'>h1</h1>
-            <h2>h2</h2>
+            <h1 className='crimson h1'>h1</h1>
+            <h2 className='h2'>h2</h2>
 
             </div>
 
