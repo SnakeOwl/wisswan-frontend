@@ -51,8 +51,10 @@ const ParticlesWrapper = React.memo(({ children }: { children: React.ReactNode }
     return (
         <>
             <div className="fixed top-0 w-full h-screen z-10" id="particles-js"></div>
-            <div className="absolute left-0 top-0 right-0 bottom-0 z-20 w-full">
-                {children}
+            <div className="absolute left-0 top-0 right-0 bottom-0 z-20 w-full bg-cover bg-center">
+                <div className="relative min-h-screen flex flex-col">
+                    {children}
+                </div>
             </div>
         </>
     )

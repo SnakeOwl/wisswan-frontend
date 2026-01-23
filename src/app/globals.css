@@ -1,26 +1,36 @@
 @import 'tailwindcss';
-/* ==== кастомные утилиты */
-@utility crimson {
-  background-color: var(--color-red-900);
-}
+
+
 
 @layer base {
-  .h1 {
+
+  .h1,
+  h1 {
     font-size: var(--text-3xl);
   }
-  .h2 {
+
+  .h2,
+  h2 {
     font-size: var(--text-2xl);
   }
-  .h3 {
+
+  .h3,
+  h3 {
     font-size: var(--text-xl);
   }
-  .h4 {
+
+  .h4,
+  h4 {
     font-size: var(--text-lg);
   }
-  .h5 {
+
+  .h5,
+  h5 {
     font-size: var(--text-base);
   }
-  .h6 {
+
+  .h6,
+  h6 {
     font-size: var(--text-sm);
   }
 
@@ -28,24 +38,14 @@
     color: var(--color-sky-500);
   }
 
+  label {
+    @apply cursor-pointer
+  }
+
+
   @media (prefers-color-scheme: dark) {
     a:hover {
       color: var(--color-sky-400);
     }
   }
 }
-
-/*
-In v4 we've updated the hover variant to only apply when the primary input device supports hover:
-
-CSS
-@media (hover: hover) {
-  .hover\:underline:hover {
-    text-decoration: underline;
-  }
-}
-This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the hover variant with your own variant that uses the old implementation:
-
-CSS
-@custom-variant hover (&:hover);
-*/
