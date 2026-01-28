@@ -7,9 +7,6 @@ import { usePathname } from "next/navigation";
 export default function Page() {
     const pathname = usePathname();
 
-    // if (pathname != "login")
-    //     return null;
-
 
     return (
         <main className="p-4 border border-neutral-300 dark:border-neutral-800 rounded-xl relative h-full flex flex-col items-center justify-around"
