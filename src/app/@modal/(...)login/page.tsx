@@ -1,6 +1,7 @@
 "use client"
 
 import LoginFormWrapper from "@/app/(guest)/login/_components/LoginFormWrapper";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Page() {
@@ -20,7 +21,7 @@ export default function Page() {
                 <LoginFormWrapper />
 
                 <p className="text-sm">
-                    Отправляя форму, вы&nbsp;даёте своё согласие на&nbsp;обработку ваших персональных данных.
+                    Отправляя форму, вы&nbsp;даёте своё согласие на&nbsp;<Link href="/privacy">обработку ваших персональных данных</Link>.
                 </p>
             </div>
         </main>

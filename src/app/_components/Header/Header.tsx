@@ -1,25 +1,54 @@
+"use client"
+
 import Logo from "@/app/_components/Logo";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserButton from "./UserButton";
+import GlobalMenu from "../GlobalMenu";
+import GlobalMenuToggler from "../GlobalMenuToggler";
+import { usePathname } from "next/navigation";
 
-const Header = React.memo(() => (
-    <header>
-        <div className="flex flex-wrap py-2">
-            <div className="w-1/3"></div>
 
-            <div className="w-1/3 text-center h1">
-                <Link href="/">
-                    <Logo />
-                </Link>
-            </div>
+const Header = React.memo(() => {
+    const [showGlobalMenu, setShowGlobalMenu] = useState<boolean>(false);
+    const pathname = usePathname();
 
-            <div className="w-1/3 flex flex-wrap items-center justify-center">
-                <UserButton />
-            </div>
-        </div>
-    </header>
-))
+    useEffect(() => {
+        setShowGlobalMenu(false);
+    }, [pathname]);
+
+
+    return (
+        <>
+            {/** padding under header */}
+            <div className="p-[32px]"></div>
+            <header className="fixed top-0 w-max-[1280px] w-[1280px]">
+                <div className="grid grid-cols-3 py-4 mb-8 ">
+                    <div className="">
+                        <GlobalMenuToggler onClick={() => setShowGlobalMenu(!showGlobalMenu)} />
+
+                        <Link
+                            className="ml-2 text-center h1"
+                            href="/"
+                        >
+                            <Logo />
+                        </Link>
+                    </div>
+
+                    <div></div>
+
+                    <div className="flex justify-end">
+                        <UserButton />
+                    </div>
+                </div>
+            </header>
+
+            {showGlobalMenu &&
+                <GlobalMenu />
+            }
+        </>
+    )
+})
 
 
 Header.displayName = "Header";

@@ -1,4 +1,12 @@
+import Link from "next/link";
 import LoginFormWrapper from "./_components/LoginFormWrapper";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Вход",
+    description: "Форма входа"
+}
+
 
 export default async function Page() {
     return (
@@ -9,7 +17,7 @@ export default async function Page() {
                 <LoginFormWrapper />
 
                 <p className="text-sm">
-                    Отправляя форму, вы&nbsp;даёте своё согласие на&nbsp;обработку ваших персональных данных.
+                    Отправляя форму, вы&nbsp;даёте своё согласие на&nbsp;<Link href="/privacy">обработку ваших персональных данных</Link>.
                 </p>
             </div>
         </main>

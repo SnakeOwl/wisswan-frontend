@@ -30,9 +30,11 @@ export default function RootLayout({
             <UserProvider>
                 <body className={`${pt_sans.className} antialiased`}>
                     <ParticlesWrapper>
-                        <Header />
+                        <div className="max-w-[1280px] mx-auto w-full flex-1 flex flex-col">
+                            <Header />
 
-                        {children}
+                            {children}
+                        </div>
 
                         {modal}
                     </ParticlesWrapper>
