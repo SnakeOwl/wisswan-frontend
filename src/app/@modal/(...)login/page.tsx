@@ -12,7 +12,7 @@ export default function Page() {
 
 
     return (
-        <main className="p-4 border border-neutral-800 rounded-xl relative h-full flex flex-col items-center justify-around"
+        <main className="p-4 border border-neutral-300 dark:border-neutral-800 rounded-xl relative h-full flex flex-col items-center justify-around"
             onClick={e => e.stopPropagation()}
         >
             <div className="w-full lg:w-[400px] flex flex-col gap-4">

@@ -52,15 +52,15 @@ export default function GlobalMenuToggler({
         >
             <div
                 ref={line1Ref}
-                className="bg-white absolute top-[4px] w-[18px] h-[2px] max-h-4 duration-300"
+                className="bg-neutral-800 dark:bg-white absolute top-[4px] w-[18px] h-[2px] max-h-4 duration-300"
             ></div>
             <div
                 ref={line2Ref}
-                className="bg-white absolute top-[10px] w-[18px] h-[2px] max-h-4 duration-300"
+                className="bg-neutral-800 dark:bg-white absolute top-[10px] w-[18px] h-[2px] max-h-4 duration-300"
             ></div>
             <div
                 ref={line3Ref}
-                className="bg-white absolute top-[16px] w-[18px] h-[2px] max-h-4 duration-300"
+                className="bg-neutral-800 dark:bg-white absolute top-[16px] w-[18px] h-[2px] max-h-4 duration-300"
             ></div>
         </button>
     )

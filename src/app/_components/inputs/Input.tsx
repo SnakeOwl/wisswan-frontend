@@ -9,7 +9,9 @@ export default function Input({className, ...other}: IInput){
         <input 
             maxLength={255}
             type="text"
-            className={`border border-neutral-800 focus:border-b-white  duration-300 focus:outline-hidden dark:bg-black/50 focus:bg-black
+            className={`
+                border border-neutral-300 dark:border-neutral-800 focus:border-b-neutral-800 dark:focus:border-b-white
+                duration-300 focus:outline-hidden dark:bg-black/50 dark:focus:bg-black
                 ${className}`}
 
             {...other}

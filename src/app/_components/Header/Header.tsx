@@ -23,7 +23,7 @@ const Header = React.memo(() => {
             {/** padding under header */}
             <div className="p-[32px]"></div>
             <header className="fixed top-0 w-max-[1280px] w-[1280px]">
-                <div className="grid grid-cols-3 py-4 mb-8 ">
+                <div className="grid grid-cols-3 pt-4 ">
                     <div className="">
                         <GlobalMenuToggler onClick={() => setShowGlobalMenu(!showGlobalMenu)} />
 
