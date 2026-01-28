@@ -50,7 +50,6 @@ const LoginFormEmail = React.memo(({
             >
                 Выслать код
             </Button>
-            <Button onClick={changeForm} type="button">change form</Button>
         </form>
     )
 })
