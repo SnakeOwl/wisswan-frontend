@@ -32,7 +32,10 @@ export default function Template({
 
     return (
         <ModalWrapper>
-            {children}
+            <div className='px-1'>
+                {children}
+            </div>
+
         </ModalWrapper>
     )
 }

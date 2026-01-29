@@ -21,23 +21,23 @@ const Header = React.memo(() => {
     return (
         <>
             {/** padding under header */}
-            <div className="p-[32px]"></div>
-            <header className="fixed top-0 w-max-[1280px] w-[1280px]">
-                <div className="grid grid-cols-3 pt-4 ">
-                    <div className="">
-                        <GlobalMenuToggler onClick={() => setShowGlobalMenu(!showGlobalMenu)} />
+            <div className="p-[24px]"></div>
+            <header className="fixed top-0 lg:w-max-[1280px] lg:w-[1280px] w-[calc(100%-1rem)]">
+                <div className="grid grid-cols-2 pt-2 ">
+                    <div className="flex items-center">
+                        <div className="mr-2 flex h-full items-center">
+                            <GlobalMenuToggler onClick={() => setShowGlobalMenu(!showGlobalMenu)} />
+                        </div>
 
                         <Link
-                            className="ml-2 text-center h1"
+                            className="text-center h1"
                             href="/"
                         >
                             <Logo />
                         </Link>
                     </div>
 
-                    <div></div>
-
-                    <div className="flex justify-end">
+                    <div className="flex justify-end items-center">
                         <UserButton />
                     </div>
                 </div>

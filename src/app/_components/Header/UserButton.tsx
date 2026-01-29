@@ -15,7 +15,7 @@ const UserButton = React.memo(() => {
     if (stateUser.authentication_status == "authorized")
         return (
             <div>
-                <Link href={'dashboard'}>
+                <Link href='/dashboard'>
                     {stateUser.user?.avatar != null ?
                         <Img
                             src={stateUser.user?.avatar}
