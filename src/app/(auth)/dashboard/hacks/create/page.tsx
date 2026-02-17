@@ -1,14 +1,16 @@
 import { Metadata } from "next";
-import LogoutButton from "./_component/LogoutButton";
+import HackForm from "../_components/HackForm";
+
 
 export const metadata: Metadata = {
-    title: "Личная информация"
+    title: "Хаки: создание"
 }
+
 
 export default async function Page() {
     return (
         <main>
-            <LogoutButton />
+            <HackForm />
         </main>
     )
 }

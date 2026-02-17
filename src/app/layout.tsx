@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./_components/Header/Header";
 import { PT_Sans, /* PT_Serif */ } from "next/font/google";
 import UserProvider from "./_components/UserProvider";
+import ToastProvider from "./_components/contexts/ToastProvider";
 
 // fonts: PT Sans / PT Serif
 
@@ -30,13 +31,15 @@ export default function RootLayout({
             <UserProvider>
                 <body className={`${pt_sans.className} antialiased`}>
                     <ParticlesWrapper>
-                        <div className="max-w-[1280px] mx-auto w-full flex-1 flex flex-col px-2 lg:px-0">
-                            <Header />
+                        <ToastProvider>
+                            <div className="max-w-[1280px] mx-auto w-full flex-1 flex flex-col px-2 lg:px-0">
+                                <Header />
 
-                            {children}
-                        </div>
+                                {children}
+                            </div>
 
-                        {modal}
+                            {modal}
+                        </ToastProvider>
                     </ParticlesWrapper>
                 </body>
             </UserProvider>

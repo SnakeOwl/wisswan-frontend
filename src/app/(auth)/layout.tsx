@@ -11,7 +11,7 @@ export default async function Layout({
     const cookiesStorage = await cookies();
 
     // ==== Redirecting users without token
-    
+
     if (!cookiesStorage.has("auth_token"))
         redirect('/login');
 
@@ -20,14 +20,15 @@ export default async function Layout({
 
     return (
         <div className="flex flex-1">
-            <div className="min-h-full w-[400px]">
+            <div className="min-h-full w-[200px] 
+                border-r dark:border-neutral-800 border-neutral-300 py-4">
                 <MainMenu />
             </div>
 
-            <div>
+            <div className="pl-4 pt-2 flex-1">
                 {children}
             </div>
         </div>
     )
-    
+
 }

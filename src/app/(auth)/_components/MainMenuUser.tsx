@@ -10,6 +10,10 @@ export default function MainMenuUser() {
     if (stateUser.authentication_status !== 'authorized')
         return null;
 
+
+    const email = stateUser.user?.email || '';
+
+
     return (
         <div className="flex gap-2 items-center">
             {stateUser.user?.avatar != null ?
@@ -28,8 +32,9 @@ export default function MainMenuUser() {
                 </div>
             }
 
+
             <div className="text-lg font-bold">
-                {stateUser.user?.email}
+                {email.slice(0, 2) + "..." + email.slice(email.indexOf('@'))}
             </div>
         </div>
     )

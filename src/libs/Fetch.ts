@@ -9,7 +9,7 @@ export async function Get(
 ): Promise<false | number | any> {
     try {
         const cookieStore = await cookies();
-        const token = cookieStore.get("ACCESS_TOKEN");
+        const token = cookieStore.get("auth_token");
 
         const headers = {
             ...(token != undefined ? { "Authorization": `Bearer ${token.value}` } : {}),
@@ -17,7 +17,7 @@ export async function Get(
             ...appendHeadrs,
         }
 
-        
+
         const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL_API + url,
             {
                 headers: headers,
@@ -41,10 +41,8 @@ export async function Get(
 
 
 /**
- * Авторизированый post запрос на бек
- * 
  * @param url path on backend
- * @param body form data or other...
+ * @param body data
  * @param appendHeders
  * @returns 
    any - some data
@@ -58,7 +56,7 @@ export async function Post(
 ): Promise<false | number | any> {
     try {
         const cookieStore = await cookies();
-        const token = cookieStore.get("ACCESS_TOKEN");
+        const token = cookieStore.get("auth_token");
 
         const headers = {
             // 'Content-Type': 'multipart/form-data', // TODO: check with files
@@ -88,10 +86,8 @@ export async function Post(
         )
 
 
-        // console.log(response.status); // отладка
-
         if (response.status == 200
-            || response.status == 201 // при создании сущностей laravel шлёт 201 по умолчанию
+            || response.status == 201 // laravel send 201 after creating by default
             || response.status == 422 // laravel validation
         )
             return (await response.json());
@@ -105,6 +101,52 @@ export async function Post(
     return false
 };
 
+/**
+ * 
+ * @param url 
+ * @param appendHeders 
+ * @returns 
+ *   true - OK
+ *   number - status response
+ *   Object - parsed JSON
+ */
+export async function Delete(
+    url: string,
+    appendHeders: Record<string, string> = {}
+): Promise<false | number | any> {
+    try {
+        const cookieStore = await cookies();
+        const token = cookieStore.get("auth_token");
+
+        const headers = {
+            "accept": "application/json", // without this laravel returns 302
+            ...(token != undefined ? { "Authorization": `Bearer ${token.value}` } : {}), // laravel auth
+            ...appendHeders,
+        }
+
+
+        const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL_API + url,
+            {
+                headers: headers,
+                method: "delete",
+            }
+        )
+
+
+        if (response.status == 200
+            || response.status == 201
+            || response.status == 422 // laravel validation
+        )
+            return (await response.json());
+
+
+        return response.status;
+    } catch (e) {
+        await log("Request POST error: " + String(e) + "\n url: " + process.env.NEXT_PUBLIC_BASE_URL_API + url);
+    }
+
+    return false
+};
 
 
 

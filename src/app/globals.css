@@ -1,6 +1,5 @@
 @import 'tailwindcss';
-
-
+@import "./Editorjs.css";
 
 @layer base {
 

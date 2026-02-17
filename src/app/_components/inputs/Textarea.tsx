@@ -1,16 +1,14 @@
 import { RefObject } from "react"
 
-export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
-    ref?: RefObject<HTMLInputElement | null>
+export interface ITextarea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    ref?: RefObject<HTMLTextAreaElement | null>
 }
 
-export default function Input({ className, ...other }: IInput) {
+export default function Textarea({ className, ...other }: ITextarea) {
     const name = other.name ? other.name : other.id ? other.id : undefined;
 
     return (
-        <input
-            maxLength={255}
-            type="text"
+        <textarea
             name={name}
             className={`
                 border border-neutral-300 dark:border-neutral-800 focus:border-b-neutral-800 dark:focus:border-b-white

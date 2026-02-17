@@ -1,0 +1,43 @@
+/* left buttons */
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn {
+    @apply dark:text-neutral-100 dark:hover:bg-neutral-800
+}
+
+/* inline styles */
+.ce-popover__container {
+    @apply dark:bg-neutral-800 dark:!border-neutral-300
+}
+.ce-popover__container * {
+    @apply dark:!text-neutral-100
+}
+.ce-popover__items {
+    @apply border-0
+}
+
+
+/* selected string from the left hamburger */
+.ce-block--selected .ce-block__content {
+    @apply dark:bg-neutral-800
+}
+
+/* selected text */
+.codex-editor ::selection {
+    @apply dark:bg-neutral-700
+}
+
+.cdx-search-field, 
+.ce-popover-item:hover:not(.ce-popover-item--no-hover), 
+.ce-inline-tool:hover {
+    @apply dark:bg-neutral-700
+}
+
+
+.ce-inline-tool-input{
+    @apply dark:!bg-neutral-800
+}
+
+/* hide toolbar via css */
+.hideToolbar .ce-inline-toolbar{
+    display: none;
+}

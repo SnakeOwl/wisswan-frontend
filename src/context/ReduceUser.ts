@@ -10,7 +10,6 @@ export default function ReducerUser(
     state: UserContextType,
     action: UserDispatchAction
 ): UserContextType {
-    // Исключаем поле `type`
     const { type, ...newAction } = action;
 
 

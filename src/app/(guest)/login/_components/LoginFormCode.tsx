@@ -189,7 +189,7 @@ export default function LoginFormCode({
 
                     <Input
                         ref={input1_ref}
-                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer"
+                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer border-x-0 border-t-0"
                         maxLength={1}
                         onKeyDown={e => handleKeyPress(0, e)}
                         value={code[0] || ''}
@@ -199,7 +199,7 @@ export default function LoginFormCode({
                     />
                     <Input
                         ref={input2_ref}
-                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer"
+                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer border-x-0 border-t-0"
                         maxLength={1}
                         onKeyDown={e => handleKeyPress(1, e)}
                         value={code[1] || ''}
@@ -210,7 +210,7 @@ export default function LoginFormCode({
                     />
                     <Input
                         ref={input3_ref}
-                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer"
+                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer border-x-0 border-t-0"
                         maxLength={1}
                         onKeyDown={e => handleKeyPress(2, e)}
                         value={code[2] || ''}
@@ -221,7 +221,7 @@ export default function LoginFormCode({
                     />
                     <Input
                         ref={input4_ref}
-                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer"
+                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer border-x-0 border-t-0"
                         maxLength={1}
                         onKeyDown={e => handleKeyPress(3, e)}
                         value={code[3] || ''}
@@ -232,7 +232,7 @@ export default function LoginFormCode({
                     />
                     <Input
                         ref={input5_ref}
-                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer"
+                        className="w-9 border-transparent focus:border-b-neutral-100 px-2 text-center cursor-pointer border-x-0 border-t-0"
                         maxLength={1}
                         onKeyDown={e => handleKeyPress(4, e)}
                         value={code[4] || ''}

@@ -21,8 +21,9 @@ const Header = React.memo(() => {
     return (
         <>
             {/** padding under header */}
-            <div className="p-[24px]"></div>
-            <header className="fixed top-0 lg:w-max-[1280px] lg:w-[1280px] w-[calc(100%-1rem)]">
+            <div className="pt-[55px]"></div>
+            <header className="fixed top-0 lg:w-max-[1280px] lg:w-[1280px] w-[calc(100%-1rem)] 
+                border-b border-neutral-300 dark:border-neutral-800">
                 <div className="grid grid-cols-2 pt-2 ">
                     <div className="flex items-center">
                         <div className="mr-2 flex h-full items-center">
