@@ -24,7 +24,7 @@ export default function MainMenu() {
 
 
     return (
-        <div className="flex flex-col justify-between min-h-full">
+        <div className="fixed flex flex-col justify-between top-[60px] bottom-0 py-2">
             <div className="flex-1">
                 {links.map(link => (
                     <Link key={link.link}

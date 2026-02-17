@@ -65,6 +65,7 @@ export default function LoginFormCode({
 
     const handleKeyPress = (indexOfInput: number, e: React.KeyboardEvent<HTMLInputElement>) => {
         // ==== catching backspace and del
+
         if (e.key === 'Backspace' || e.key === 'Delete') {
             let val = ' ';
 
@@ -89,7 +90,7 @@ export default function LoginFormCode({
             }
         }
 
-        if (e.key === 'ArrowLeft') {
+        if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
             e.preventDefault();
 
             if (indexOfInput == 1) {
