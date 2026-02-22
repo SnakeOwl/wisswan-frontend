@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { Metadata } from 'next';
+import HacksBlock from './_components/HacksBlock';
 
 
 export const metadata: Metadata = {
@@ -10,15 +10,10 @@ export const metadata: Metadata = {
 export default async function Page() {
     return (
         <main>
-            <h1>textbook</h1>
-            <div className={clsx("text-green-500", {
-                "text-red-400": true
-            })}>
+            <section>
+                <HacksBlock />
+            </section>
 
-            
-            
-
-            </div>
 
         </main>
     );

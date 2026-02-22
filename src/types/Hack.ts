@@ -1,3 +1,5 @@
+import { Domain } from "./Domain"
+
 export type Hack = {
     id: number
     created_at: string | null
@@ -13,4 +15,6 @@ export type Hack = {
     user_id: number | null
     shared_link: string | null
     status: number // Status in fact
+
+    domains?: Domain[]
 }

@@ -33,7 +33,7 @@ export default async function Page({
 
     const hack: Hack = hackResponse as Hack;
 
-
+    
     return (
         <main>
             <HackDashboard hack={hack} />

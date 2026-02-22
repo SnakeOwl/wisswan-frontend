@@ -1,13 +1,16 @@
 "use client"
 
 import { Copy } from "lucide-react";
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import { useRef } from "react";
+import { Post } from "@/libs/Fetch";
 
 export default function EditorjsHackView({
-    JSONContext
+    JSONContext,
+    hackId
 }: {
     JSONContext: string
+    hackId: number
 }) {
     // take only pharagraphs
 
@@ -35,7 +38,9 @@ export default function EditorjsHackView({
         const decodedValues = blocksValues.map((val: string) => decodeHtml(val));
         const copiedText = decodedValues.join('\n');
 
-        navigator.clipboard.writeText(copiedText)
+        navigator.clipboard.writeText(copiedText);
+
+        Post(`hacks/rating-inc/${hackId}`);
 
         setTimeout(() => {
             copyButton.current?.classList.toggle('!text-emerald-500')
