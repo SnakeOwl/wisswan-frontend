@@ -2,6 +2,7 @@ import { Fetch } from "@/libs/Fetch"
 import { log } from "@/libs/Logging";
 import { Hack } from "@/types/Hack";
 import HackView from "../../_components/HackView";
+import Pagination from "@/app/_components/Paginations/Pagination";
 
 export default async function HacksBlock({
     filters
@@ -20,7 +21,7 @@ export default async function HacksBlock({
 
 
     const hacks = hacksRequest.data;
-    hacksRequest.total;
+    const pages = hacksRequest.last_page;
 
 
     return (
@@ -31,6 +32,13 @@ export default async function HacksBlock({
                     className="mb-4"
                 />
             ))}
+
+
+            {pages > 1 &&
+                <Pagination
+                    totalPages={pages}
+                />
+            }
         </div>
     )
 }

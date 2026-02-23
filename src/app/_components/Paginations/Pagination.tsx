@@ -3,16 +3,17 @@
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight, Ellipsis } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Pagination({
-    page,
     totalPages
 }: {
-    page: number,
     totalPages: number
 }) {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const page = searchParams.has('page') ? Number(searchParams.get('page')) : 1;
+
     const disableLeftArrow = page < 2;
     const disableRightArrow = page >= totalPages;
     const showNextPage = page + 1 < totalPages;

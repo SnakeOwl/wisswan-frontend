@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
     return (
-        <main>
+        <main className='pb-4'>
             <section>
                 <HacksBlock />
             </section>

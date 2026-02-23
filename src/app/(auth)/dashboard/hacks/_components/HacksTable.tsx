@@ -50,7 +50,7 @@ export default function HacksTable({
 
 
             {totalPages > 1 &&
-                <Pagination page={Number(page)} totalPages={totalPages} />
+                <Pagination totalPages={totalPages} />
             }
         </div>
     )
