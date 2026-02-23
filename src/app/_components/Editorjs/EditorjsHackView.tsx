@@ -52,6 +52,7 @@ export default function EditorjsHackView({
         <div className="relative p-2 min-h-[44px] dark:bg-neutral-950 rounded-md
             border border-neutral-200 dark:border-neutral-800
         "
+            onClick={e => e.stopPropagation()}
         >
             <div ref={copyButton}
                 className="absolute top-3 right-3 cursor-pointer hover:text-sky-400"

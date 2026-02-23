@@ -128,7 +128,7 @@ export async function Post(
             ...(token != undefined ? { "Authorization": `Bearer ${token.value}` } : {}), // laravel auth
             ...appendHeders,
         }
-        console.log('body:', body)
+        
         let postBody: any = null;
         if (!!body) {
             if (body instanceof FormData) {
@@ -140,7 +140,7 @@ export async function Post(
                 appendObjectToFormData(postBody, body);
             }
         }
-        console.log('postBody:', postBody)
+        
         const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL_API + url,
             {
                 headers: headers,
@@ -253,7 +253,6 @@ const appendObjectToFormData = (formData: FormData, data: any, parentKey = '') =
                         // NO ELEMENTS
                         formData.append(fullKey, ""); // erase
                     } else {
-                        console.log('value: ', value)
                         value.forEach((item, index) => {
                             appendObjectToFormData(formData, item, `${fullKey}[${index}]`);
                         });
