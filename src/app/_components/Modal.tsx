@@ -37,7 +37,7 @@ export default function Modal({
 
 
     return (
-        <div className={`absolute z-50 inset-0 flex items-center ${className}`}
+        <div className={`fixed z-50 inset-0 flex items-center max-h-screen ${className}`}
             onClick={wrapperClick}
         >
             <div className="relative flex-1 bg-transparent">

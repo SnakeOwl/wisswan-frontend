@@ -1,21 +1,23 @@
 "use client"
 
 import Button from "@/app/_components/buttons/Button"
-import Input, { IInput } from "@/app/_components/inputs/Input"
+import Input from "@/app/_components/inputs/Input"
 import strReplaceAt from "@/utils/strReplaceAt"
 import { useActionState, useContext, useEffect, useRef, useState } from "react"
 import loginCodeRequest from "../_requests/loginCodeRequest"
 import clsx from "clsx"
 import ContextUser from "@/context/ContextUser"
 import setCookie from "@/utils/setCookie"
-import { redirect, RedirectType, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 export default function LoginFormCode({
     email,
-    changeForm
+    changeForm,
+    redirectAfterSuccess = true,
 }: {
     email: string
     changeForm: () => void
+    redirectAfterSuccess?: boolean
 }) {
     const CODE_LENGTH = 5;
 
@@ -165,8 +167,13 @@ export default function LoginFormCode({
                 authentication_status: "authorized"
             });
 
-            router.push('/dashboard'); // 
-            router.refresh(); // without refresh() URL is not changing
+
+            if (redirectAfterSuccess) {
+                router.push('/dashboard'); // 
+                router.refresh(); // without refresh() URL is not changing
+            }else {
+                router.back();
+            }
         }
     }, [formState])
 

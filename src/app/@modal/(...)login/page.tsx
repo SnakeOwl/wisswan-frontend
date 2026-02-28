@@ -15,7 +15,7 @@ export default function Page() {
             <div className="w-full lg:w-[400px] flex flex-col gap-4">
                 <h1>Вход</h1>
 
-                <LoginFormWrapper />
+                <LoginFormWrapper useRedirectAfterSuccess={false} />
 
                 <p className="text-sm">
                     Отправляя форму, вы&nbsp;даёте своё согласие на&nbsp;<Link href="/privacy">обработку ваших персональных данных</Link>.

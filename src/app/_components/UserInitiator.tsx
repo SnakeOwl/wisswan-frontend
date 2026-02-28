@@ -2,6 +2,7 @@
 
 import ContextUser from "@/context/ContextUser";
 import { User } from "@/types/User";
+import { deleteCookie } from "@/utils/deleteCookie";
 import getCookie from "@/utils/getCookie";
 import getUser from "@/utils/getUser";
 import React, { useContext, useEffect } from "react";
@@ -15,6 +16,7 @@ const UserInitiator = React.memo(() => {
         getCookie('auth_token').then((token) => {
             if (typeof token === 'string') {
                 getUser().then((user: User | null) => {
+                    
                     if (user !== null) {
                         dispatchUser({
                             type: 'SET',
@@ -28,6 +30,8 @@ const UserInitiator = React.memo(() => {
                             authentication_status: "unauthorized",
                             user: null,
                         });
+                        
+                        deleteCookie('auth_token');
                     }
                 });
 
