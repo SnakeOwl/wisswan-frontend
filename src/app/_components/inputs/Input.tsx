@@ -15,6 +15,7 @@ export default function Input({ className, ...other }: IInput) {
             className={`
                 border border-neutral-300 dark:border-neutral-800 focus:border-b-neutral-800 dark:focus:border-b-white
                 duration-300 focus:outline-hidden dark:bg-black/50 dark:focus:bg-black
+                disabled:text-neutral-500
                 ${className}`}
 
             {...other}
