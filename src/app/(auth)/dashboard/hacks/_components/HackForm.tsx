@@ -12,8 +12,10 @@ import DomainSelectorWrapper from "./DomainSelectorWrapper";
 
 export default function HackForm({
     initialHack = null,
+    showToastAfterSave = false
 }: {
     initialHack?: Hack | null
+    showToastAfterSave?: boolean
 }) {
     const formRef = useRef<HTMLFormElement>(null);
     const [formState, formAction, isPending] = useActionState(saveHackRequest, null);
@@ -42,6 +44,13 @@ export default function HackForm({
             // ==== HACK WAS CREATED HAS ID
             setData({ ...data, id: formState.id });
 
+            if (showToastAfterSave) {
+                dispatchToast({
+                    type: "SET",
+                    title: "Сохранено",
+                    style: "green",
+                });
+            }
         }
     }, [formState]);
 
@@ -51,6 +60,8 @@ export default function HackForm({
         // Or implementation this feauture will be so clumsily
         formRef.current!.requestSubmit();
     }, [value]);
+
+
 
 
     const inputsBlur = useCallback(() => {
@@ -66,7 +77,7 @@ export default function HackForm({
         <div>
             <form ref={formRef}
                 action={formAction}
-                className="grid w-3/4 gap-4"
+                className="grid gap-4"
             >
                 {data.id &&
                     <input type="hidden" name="id" value={data.id} />

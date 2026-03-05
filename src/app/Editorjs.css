@@ -1,12 +1,12 @@
 /* left buttons */
 .ce-toolbar__plus,
 .ce-toolbar__settings-btn {
-    @apply dark:text-neutral-100 dark:hover:bg-neutral-800
+    @apply dark:text-neutral-100 dark:hover:bg-neutral-800 dark:!bg-neutral-950 dark:border-neutral-800
 }
 
 /* inline styles */
 .ce-popover__container {
-    @apply dark:bg-neutral-800 dark:!border-neutral-300
+    @apply dark:!bg-neutral-800 dark:!border-neutral-300 
 }
 .ce-popover__container * {
     @apply dark:!text-neutral-100

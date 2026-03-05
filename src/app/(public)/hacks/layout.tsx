@@ -1,5 +1,6 @@
 import { Fetch } from "@/libs/Fetch"
 import DomainsFilter from "./_components/DomainsFilter"
+import NewAnonymHackBlock from "./_components/NewAnonymHackBlock";
 
 export default async function Layout({
     children
@@ -22,6 +23,12 @@ export default async function Layout({
             }
 
             {children}
+
+
+            <section className="mt-4 border border-neutral-200 dark:border-neutral-800 p-2 rounded-xl">
+
+                <NewAnonymHackBlock />
+            </section>
         </div>
     )
 }

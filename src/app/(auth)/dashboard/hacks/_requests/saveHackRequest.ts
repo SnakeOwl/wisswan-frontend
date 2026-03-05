@@ -2,6 +2,7 @@
 
 import { Post } from "@/libs/Fetch";
 import { log } from "@/libs/Logging";
+import getCookie from "@/utils/getCookie";
 import { z } from "zod";
 
 export default async function saveHackRequest(prevState: any, formData: FormData) {
@@ -34,7 +35,13 @@ export default async function saveHackRequest(prevState: any, formData: FormData
     try {
         zodSchema.parse(rawData); // will be a throw on validation error
 
-        const urlToSave = rawData.id ? `user/hacks/${rawData.id}` : `user/hacks`;
+        const hasUserToken = (await getCookie('auth_token')) != null;
+
+        const urlToSave = hasUserToken
+            ? rawData.id 
+                ? `user/hacks/${rawData.id}`
+                : `user/hacks`
+            :`hacks/anonym-form-suggestion`;
         
         // request to backend
         const response = await Post(urlToSave, rawData);
