@@ -1,8 +1,9 @@
 "use client"
 import DomainsSelector from "@/app/(auth)/_components/DomainsSelector";
+import ContextUser from "@/context/ContextUser";
 import { Fetch, Get, Post } from "@/libs/Fetch";
 import { Domain } from "@/types/Domain";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 export default function DomainSelectorWrapper({
     hackId,
@@ -11,6 +12,7 @@ export default function DomainSelectorWrapper({
     hackId: number | null
     initialUsedDomains?: Domain[]
 }) {
+    const { stateUser } = useContext(ContextUser);
     const [usedDomains, setUsedDomains] = useState<Domain[]>(initialUsedDomains);
     const [disableDomainSelector, setDisableDomainSelector] = useState<boolean>(false);
     const domainsForMatches = useRef<Domain[] | null>(null);
@@ -50,7 +52,9 @@ export default function DomainSelectorWrapper({
             setDisableDomainSelector(true);
             domains = domains.map(el => (el.id && el.id > 0) ? el : { ...el, id: undefined })
 
-            syncResponse = await Post(`user/hacks/sync-domens/${hackId}`, {
+            syncResponse = await Post(stateUser.authentication_status == "authorized"
+                ? `user/hacks/sync-domens/${hackId}`
+                : `hacks/anonym-form-suggestion-sync-domains/${hackId}`, {
                 domains: domains
             });
 
@@ -107,10 +111,12 @@ export default function DomainSelectorWrapper({
         if (domainsForMatches.current === null) {
             (async () => {
                 let domainsForMathces: Domain[] = [];
-                await Get('user/get-used-domains-in-hacks')
-                    .then(usedDomainsResponse => {
-                        domainsForMathces.push(...usedDomainsResponse);
-                    })
+                if (stateUser.authentication_status == "authorized") {
+                    await Get('user/get-used-domains-in-hacks')
+                        .then(usedDomainsResponse => {
+                            domainsForMathces.push(...usedDomainsResponse);
+                        })
+                }
 
                 await Fetch('feed/domains', Number(0), ['domains'])
                     .then(publicDomains => {
